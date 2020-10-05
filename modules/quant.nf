@@ -11,6 +11,6 @@ process QUANT {
 
     script:
     """
-    /tmp/trace-program.sh -f /tmp/traces/trace-quant-1 --remote=all salmon quant --threads $task.cpus --libType=U -i $index -1 ${reads[0]} -2 ${reads[1]} -o $pair_id
+    /tmp/trace-program.sh -f /tmp/traces/trace-quant-${workflow.sessionId} --remote=all salmon quant --threads $task.cpus --libType=U -i $index -1 ${reads[0]} -2 ${reads[1]} -o $pair_id
     """
 }
