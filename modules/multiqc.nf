@@ -14,6 +14,6 @@ process MULTIQC {
     """
     cp $config/* .
     echo "custom_logo: \$PWD/logo.png" >> multiqc_config.yaml
-    bash /anf/apps/breeze_2.13.5_x86_64_traceonly/trace-program.sh -f $HOME/traces --remote=all multiqc .
+    /tmp/trace-program.sh -f $HOME/traces --remote=all multiqc .
     """
 }
