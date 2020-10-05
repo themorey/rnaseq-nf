@@ -10,6 +10,6 @@ process INDEX {
 
     script:
     """
-    /tmp/trace-program.sh -f /tmp/traces/trace-$SLURM_JOB_ID --remote=all salmon index --threads $task.cpus -t $transcriptome -i index
+    /tmp/trace-program.sh -f /tmp/traces/trace-$(date +"%Y%m%d") --remote=all salmon index --threads $task.cpus -t $transcriptome -i index
     """
 }
