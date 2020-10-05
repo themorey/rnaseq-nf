@@ -14,6 +14,6 @@ process MULTIQC {
     """
     cp $config/* .
     echo "custom_logo: \$PWD/logo.png" >> multiqc_config.yaml
-    /tmp/trace-program.sh -f $HOME/traces --remote=all multiqc .
+    /tmp/trace-program.sh -f /tmp/traces/trace-$SLURM_JOB_ID --remote=all multiqc .
     """
 }
