@@ -10,6 +10,6 @@ process INDEX {
 
     script:
     """
-    /tmp/trace-program.sh -f /tmp/traces/trace-index-1 --remote=all salmon index --threads $task.cpus -t $transcriptome -i index
+    /tmp/trace-program.sh -f /tmp/traces/trace-index-${workflow.sessionId} --remote=all salmon index --threads $task.cpus -t $transcriptome -i index
     """
 }
