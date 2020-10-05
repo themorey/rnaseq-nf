@@ -13,6 +13,6 @@ process FASTQC {
     script:
     """
     mkdir fastqc_${sample_id}_logs
-    /tmp/trace-program.sh -f /tmp/traces/trace-20201005 --remote=all fastqc -o fastqc_${sample_id}_logs -f fastq -q ${reads}
+    fastqc -o fastqc_${sample_id}_logs -f fastq -q ${reads}
     """
 }
