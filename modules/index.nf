@@ -1,6 +1,5 @@
 
 process INDEX {
-    tracePath = "/tmp/traces/trace-index-${SLURM_JOB_ID}"
     tag "$transcriptome.simpleName"
 
     input:
@@ -11,6 +10,6 @@ process INDEX {
 
     script:
     """
-    /tmp/trace-program.sh -f $tracePath --remote=all salmon index --threads $task.cpus -t $transcriptome -i index
+    /tmp/trace-program.sh -f /tmp/traces/trace-index-1 --remote=all salmon index --threads $task.cpus -t $transcriptome -i index
     """
 }
