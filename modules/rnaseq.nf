@@ -10,9 +10,9 @@ workflow RNASEQ {
     read_pairs_ch
  
   main: 
-    bash /anf/apps/breeze_2.13.5_x86_64_traceonly/trace-program.sh -f $HOME/traces --remote=all INDEX(transcriptome)
-    bash /anf/apps/breeze_2.13.5_x86_64_traceonly/trace-program.sh -f $HOME/traces --remote=all FASTQC(read_pairs_ch)
-    bash /anf/apps/breeze_2.13.5_x86_64_traceonly/trace-program.sh -f $HOME/traces --remote=all QUANT(INDEX.out, read_pairs_ch)
+    INDEX(transcriptome)
+    FASTQC(read_pairs_ch)
+    QUANT(INDEX.out, read_pairs_ch)
 
   emit: 
      QUANT.out | concat(FASTQC.out) | collect
