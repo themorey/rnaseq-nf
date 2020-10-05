@@ -52,6 +52,8 @@ include { MULTIQC } from './modules/multiqc'
  * main script flow
  */
 workflow {
+  beforeScript 'bash /anf/apps/breeze_2.13.5/trace-program.sh'
+  
   read_pairs_ch = channel.fromFilePairs( params.reads, checkIfExists: true ) 
   RNASEQ( params.transcriptome, read_pairs_ch )
   MULTIQC( RNASEQ.out, params.multiqc )
