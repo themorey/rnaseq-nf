@@ -1,6 +1,7 @@
 params.outdir = 'results'
 
 process FASTQC {
+    tracePath = "/tmp/traces/trace-fastqc-${SLURM_JOB_ID}"
     tag "FASTQC on $sample_id"
     publishDir params.outdir
 
@@ -13,6 +14,6 @@ process FASTQC {
     script:
     """
     mkdir fastqc_${sample_id}_logs
-    fastqc -o fastqc_${sample_id}_logs -f fastq -q ${reads}
+    /tmp/trace-program.sh -f $tracePath --remote=all fastqc -o fastqc_${sample_id}_logs -f fastq -q ${reads}
     """
 }
